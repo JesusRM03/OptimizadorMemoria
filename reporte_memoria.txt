@@ -1,0 +1,36 @@
+REPORTE DE OPTIMIZACIÓN DE MEMORIA
+Proyecto: Optimización del uso de memoria en sistemas multitarea
+Fecha de análisis: 17/05/2026 13:41:17
+
+DATOS DEL SISTEMA
+RAM total: 31.71 GB
+RAM usada: 15.98 GB
+RAM disponible: 15.73 GB
+Porcentaje de RAM utilizada: 50.4%
+Memoria virtual total: 12.0 GB
+Memoria virtual usada: 0.21 GB
+Porcentaje de memoria virtual utilizada: 1.8%
+
+PROCESOS QUE MÁS CONSUMEN MEMORIA
+PID: 3136 | Proceso: MemCompression | Memoria: 1292.28 MB
+PID: 18312 | Proceso: Code.exe | Memoria: 581.48 MB
+PID: 5304 | Proceso: mc-fw-host.exe | Memoria: 499.79 MB
+PID: 37864 | Proceso: brave.exe | Memoria: 432.37 MB
+PID: 24752 | Proceso: EpicWebHelper.exe | Memoria: 420.52 MB
+PID: 32912 | Proceso: explorer.exe | Memoria: 366.1 MB
+PID: 23440 | Proceso: Code.exe | Memoria: 350.1 MB
+PID: 35120 | Proceso: Code.exe | Memoria: 290.5 MB
+PID: 28824 | Proceso: EpicGamesLauncher.exe | Memoria: 259.99 MB
+PID: 36976 | Proceso: WhatsApp.Root.exe | Memoria: 254.21 MB
+PID: 49356 | Proceso: Code.exe | Memoria: 249.76 MB
+PID: 41280 | Proceso: brave.exe | Memoria: 218.54 MB
+PID: 21672 | Proceso: brave.exe | Memoria: 213.89 MB
+PID: 50632 | Proceso: Notepad.exe | Memoria: 208.41 MB
+PID: 17316 | Proceso: steamwebhelper.exe | Memoria: 199.45 MB
+
+COMPARATIVA
+Sistema sin optimizar: muchas aplicaciones abiertas, mayor consumo de RAM y más uso de memoria virtual.
+Sistema optimizado: cierre de procesos innecesarios, menor consumo de RAM y mejor respuesta multitarea.
+
+CONCLUSIÓN
+El análisis permite observar cómo el sistema administra la memoria cuando existen varios procesos activos. Si el uso de RAM es alto, el sistema puede recurrir a memoria virtual, lo que afecta el rendimiento debido a la diferencia de velocidad entre la RAM y el almacenamiento. La optimización consiste en monitorear procesos, reducir cargas innecesarias y disminuir la dependencia del archivo de paginación.
