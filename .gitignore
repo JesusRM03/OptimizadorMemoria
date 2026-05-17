@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.venv/
+env/
+venv/
+
+reporte_memoria.txt
+
+dist/
+build/
+*.spec
+
+.DS_Store
+Thumbs.db
