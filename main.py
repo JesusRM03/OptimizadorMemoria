@@ -100,8 +100,8 @@ class OptimizadorMemoriaApp:
         acciones = ttk.Frame(encabezado)
         acciones.pack(side="right")
         ttk.Button(acciones, text="Actualizar ahora", command=self.actualizar_manual).pack(side="left", padx=(0, 8))
-        ttk.Button(acciones, text="Guardar estado inicial", command=self.tomar_medicion_antes).pack(side="left", padx=(0, 8))
-        ttk.Button(acciones, text="Guardar estado final", command=self.tomar_medicion_despues).pack(side="left")
+        ttk.Button(acciones, text="Medir estado inicial", command=self.tomar_medicion_antes).pack(side="left", padx=(0, 8))
+        ttk.Button(acciones, text="Medir estado final", command=self.tomar_medicion_despues).pack(side="left")
 
         self.notebook = ttk.Notebook(contenedor)
         self.notebook.pack(fill="both", expand=True)
@@ -585,7 +585,8 @@ class OptimizadorMemoriaApp:
                 f"({resultado['porcentaje_liberado']:.2f}%).\n"
                 f"RAM disponible adicional: {resultado['disponible_extra_gb']:.2f} GB.\n"
                 f"Procesos activos reducidos: {resultado['diferencia_procesos']}.\n\n"
-                "Una mejora real suele verse como menos RAM usada, más memoria disponible o menos procesos activos."
+                "La optimización es positiva cuando disminuye la RAM usada, aumenta la memoria disponible "
+                "o se reducen procesos no esenciales."
             )
         else:
             texto = (
