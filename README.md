@@ -1,134 +1,79 @@
-# Optimizador de Memoria Multitarea
+# Optimizador de Memoria
 
-Programa de escritorio desarrollado en Python para analizar el uso de memoria RAM en una computadora, identificar procesos con alto consumo y apoyar la optimización del sistema en un entorno multitarea.
+Aplicación de escritorio para Windows hecha con Python y Tkinter. Permite monitorear el uso de RAM, revisar la memoria virtual, listar procesos activos y cerrar procesos no esenciales seleccionados por el usuario.
 
-## Descripción
-
-Este proyecto permite observar cómo una computadora administra la memoria cuando se ejecutan varias aplicaciones al mismo tiempo. El programa muestra información en tiempo real sobre el uso de RAM, memoria virtual y procesos activos.
-
-Además, permite medir el estado del sistema antes y después de cerrar procesos no esenciales, con el objetivo de comprobar si la optimización libera memoria y mejora el comportamiento del equipo.
-
-## Objetivo del programa
-
-El objetivo principal es ayudar al usuario a:
-
-- Monitorear el uso actual de memoria RAM.
-- Identificar procesos que consumen demasiada memoria.
-- Clasificar procesos según su consumo.
-- Evitar cerrar procesos protegidos del sistema.
-- Finalizar procesos no esenciales seleccionados por el usuario.
-- Comparar el estado del sistema antes y después de optimizar.
-
-## Relación con Arquitectura de Computadoras
-
-El programa se relaciona con varios conceptos de arquitectura de computadoras, principalmente:
-
-- Memoria RAM.
-- Memoria virtual.
-- Archivo de paginación.
-- Procesos.
-- Sistema operativo.
-- Administración de memoria.
-- Multitarea.
-- Rendimiento del sistema.
-
-Cuando la RAM comienza a saturarse, el sistema operativo puede recurrir a la memoria virtual. Aunque esto permite que el sistema siga funcionando, también puede disminuir el rendimiento porque el almacenamiento secundario es más lento que la RAM.
+La aplicación está pensada como una herramienta práctica: ayuda a detectar aplicaciones con alto consumo de memoria y compara el estado del sistema antes y después de optimizar.
 
 ## Funciones principales
 
-### Monitor de memoria
-
-La pestaña de monitor muestra:
-
-- RAM total.
-- RAM usada.
-- RAM disponible.
-- Estado general del sistema.
-- Porcentaje de uso de RAM.
-- Porcentaje de uso de memoria virtual.
-
-### Procesos activos
-
-La pestaña de procesos muestra una tabla con:
-
-- PID del proceso.
-- Nombre del proceso.
-- Memoria utilizada en MB.
-- Porcentaje aproximado de RAM.
-- Clasificación del proceso.
-- Recomendación de acción.
-
-El programa clasifica los procesos como:
-
-- Sistema protegido.
-- Consumo muy alto.
-- Consumo alto.
-- Consumo medio.
-- Consumo bajo.
-- Aplicación de usuario.
-
-### Optimización
-
-La pestaña de optimización permite:
-
-1. Medir el estado inicial del sistema.
-2. Revisar procesos con alto consumo de memoria.
-3. Finalizar procesos no esenciales.
-4. Medir nuevamente el sistema.
-5. Comparar si disminuyó el uso de RAM.
-
-## Flujo de uso
-
-1. Ejecutar el programa.
-2. Presionar el botón **Medir antes**.
-3. Entrar a la pestaña **Procesos**.
-4. Seleccionar un proceso que el usuario reconozca.
-5. Presionar **Finalizar proceso seleccionado**.
-6. Entrar a la pestaña **Optimización**.
-7. Presionar **Medir después**.
-8. Revisar el resultado de la comparación.
-
-## Advertencia
-
-El programa permite finalizar procesos, por lo que se debe usar con cuidado.
-
-No se recomienda cerrar procesos desconocidos o procesos del sistema operativo. El programa bloquea algunos procesos protegidos, pero el usuario debe asegurarse de cerrar únicamente aplicaciones que reconozca, como navegadores, editores de código, reproductores o programas abiertos manualmente.
-
-Ejemplos de procesos que normalmente sí pueden cerrarse si no se están usando:
-
-- chrome.exe
-- brave.exe
-- msedge.exe
-- firefox.exe
-- code.exe
-- discord.exe
-- spotify.exe
-- steam.exe
-
-Ejemplos de procesos que no se deben cerrar:
-
-- system
-- svchost.exe
-- csrss.exe
-- winlogon.exe
-- services.exe
-- lsass.exe
-- dwm.exe
-- explorer.exe
+- Muestra RAM total, RAM usada, RAM disponible y estado general del sistema.
+- Muestra el uso de memoria virtual / archivo de paginación.
+- Lista procesos activos ordenados por memoria usada.
+- Permite buscar procesos por nombre.
+- Permite filtrar solo procesos de alto consumo.
+- Clasifica procesos por consumo de memoria.
+- Indica si un proceso parece seguro de cerrar o si está protegido.
+- Bloquea procesos críticos de Windows y la propia aplicación.
+- Pide confirmación antes de finalizar cualquier proceso.
+- Actualiza la tabla y las mediciones después de cerrar un proceso.
+- Compara estado inicial y final para mostrar RAM liberada, cambio porcentual y diferencia de procesos activos.
+- Marca la optimización como positiva, neutral o negativa.
 
 ## Requisitos
 
 - Windows 10 o Windows 11.
-- Python 3.14 o superior.
-- Librería `psutil`.
+- Python 3.10 o superior.
+- Dependencias incluidas en `requirements.txt`.
 
-Tkinter no necesita instalarse por separado porque viene incluido con Python.
+Tkinter viene incluido con la instalación normal de Python en Windows.
 
 ## Instalación
 
-Primero se debe tener instalado Python.
-
-Después, desde la terminal en la carpeta del proyecto, instalar las dependencias con:
+Desde la carpeta del proyecto, instala las dependencias:
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Ejecución
+
+Ejecuta la aplicación con:
+
+```bash
+python main.py
+```
+
+## Uso recomendado
+
+1. Abre la aplicación.
+2. Pulsa **Guardar estado inicial**.
+3. Entra en la pestaña **Procesos**.
+4. Usa la búsqueda o el filtro de alto consumo para encontrar aplicaciones pesadas.
+5. Selecciona solo procesos que reconozcas y que no estés usando.
+6. Pulsa **Finalizar seleccionado** y confirma la acción.
+7. Revisa la pestaña **Comparación** para ver el resultado.
+
+## Advertencias
+
+Finalizar procesos puede cerrar aplicaciones y causar pérdida de datos no guardados. Cierra únicamente procesos que reconozcas, como navegadores, editores, reproductores o aplicaciones abiertas manualmente.
+
+La aplicación bloquea muchos procesos críticos de Windows, por ejemplo:
+
+- `system`
+- `smss.exe`
+- `csrss.exe`
+- `wininit.exe`
+- `winlogon.exe`
+- `services.exe`
+- `lsass.exe`
+- `svchost.exe`
+- `dwm.exe`
+- `explorer.exe`
+- `msmpeng.exe`
+- `trustedinstaller.exe`
+
+Aunque exista esta protección, si no sabes qué hace un proceso, es mejor dejarlo activo.
+
+## Notas del proyecto
+
+El programa mantiene su propósito principal: observar el estado de memoria del sistema, identificar procesos con consumo elevado y permitir una optimización manual controlada. No genera archivos externos ni convierte el proyecto a `.exe`.
